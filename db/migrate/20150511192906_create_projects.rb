@@ -1,8 +1,6 @@
 class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
-      has_many :rewards
-      has_many :pledges
       t.string :name
       t.string :title
       t.string :description
