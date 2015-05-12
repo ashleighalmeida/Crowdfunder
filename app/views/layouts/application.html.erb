@@ -2,13 +2,29 @@
 <html>
 <head>
   <title>Crowdfunder</title>
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track', :cocoon => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
+
 <%= yield %>
+
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log out", logout_path %>
+<% else %>
+  <%= link_to "Sign up", signup_path %> or
+  <%= link_to "log in", login_path %>.
+<% end %>
+
+
 
 </body>
 </html>
+
+
