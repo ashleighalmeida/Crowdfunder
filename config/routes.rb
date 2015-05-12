@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   get 'users/create'
 
+  get 'projects/:id' => 'projects#show', as: 'project'
+
 get "logout" => "sessions#destroy", :as => "logout"
 get "login" => "sessions#new", :as => "login"
 get "signup" => "users#new", :as => "signup"

@@ -1,5 +1,7 @@
 class RewardsController < ApplicationController
+
   def show
+    @rewards = Reward.all
   end
 
   def create
@@ -10,4 +12,5 @@ class RewardsController < ApplicationController
 
   def destroy
   end
+
 end

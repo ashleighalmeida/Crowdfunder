@@ -1,2 +1,6 @@
-<h1>Rewards#show</h1>
-<p>Find me in app/views/rewards/show.html.erb</p>
+<h1>Rewards</h1>
+
+<% @rewards.each do |reward| %>
+  <p><%= reward.title %>, <%= reward.description %></p>
+<% end %>
+
