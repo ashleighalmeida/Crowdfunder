@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'rewards/show'
+
+  get 'rewards/create'
+
+  get 'rewards/edit'
+
+  get 'rewards/destroy'
+
   get 'projects/index'
 
   get 'projects/show'
