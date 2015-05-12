@@ -1,21 +1,6 @@
 Rails.application.routes.draw do
-  get 'rewards/show'
-
-  get 'rewards/create'
-
-  get 'rewards/edit'
-
-  get 'rewards/destroy'
-
-  get 'projects/index'
-
-  get 'projects/show'
-
-  get 'projects/new'
-
-  get 'projects/edit'
-
-  get 'projects/destroy'
+  root 'projects#index'
+  resources :projects
 
   get 'sessions/new'
 
@@ -26,8 +11,6 @@ Rails.application.routes.draw do
   get 'users/new'
 
   get 'users/create'
-
-  get 'projects/:id' => 'projects#show', as: 'project'
 
 get "logout" => "sessions#destroy", :as => "logout"
 get "login" => "sessions#new", :as => "login"
