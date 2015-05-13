@@ -1,2 +1,36 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h1> Create a Project </h1>
+
+<%= form_for @project do |f| %>
+
+<div>
+	<%= f.label :name %>
+	<%= f.label_field :name %>
+</div>
+
+<div>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+</div>
+
+<h4>Rewards
+
+<%= f.fields_for :rewards do |rewards_form| %>
+	<div>
+		<%= rewards_form.label :name %>
+		<%= rewards_form.text_field :name %>
+		</div>
+
+		<div>
+			<%= rewards_form.label :description %>
+			<%= rewards_form.text_area :description %>
+		</div>
+
+		<div>
+			<%= rewards_form.label :amount %>
+			<%= rewards_form.text_field: amount %>
+		</div>
+<% end %>
+
+		<%= f.submit %>
+
+<% end %>  
