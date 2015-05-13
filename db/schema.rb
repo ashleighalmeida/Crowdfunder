@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513135310) do
+ActiveRecord::Schema.define(version: 20150513182430) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150513135310) do
     t.string   "title"
     t.string   "description"
     t.integer  "funding_goal"
-    t.integer  "start_date"
-    t.integer  "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string   "photo_url"
     t.integer  "total_raised"
     t.string   "category"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150513135310) do
     t.integer  "backer_limit"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "project_id"
   end
 
   create_table "users", force: :cascade do |t|

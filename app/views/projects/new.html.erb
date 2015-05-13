@@ -1,42 +1,6 @@
-<<<<<<< HEAD
+
 <h1> Create a Project </h1>
 
-<%= form_for @project do |f| %>
-
-<div>
-	<%= f.label :name %>
-	<%= f.label_field :name %>
-</div>
-
-<div>
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-</div>
-
-<h4>Rewards
-
-<%= f.fields_for :rewards do |rewards_form| %>
-	<div>
-		<%= rewards_form.label :name %>
-		<%= rewards_form.text_field :name %>
-		</div>
-
-		<div>
-			<%= rewards_form.label :description %>
-			<%= rewards_form.text_area :description %>
-		</div>
-
-		<div>
-			<%= rewards_form.label :amount %>
-			<%= rewards_form.text_field: amount %>
-		</div>
-<% end %>
-
-		<%= f.submit %>
-
-<% end %>  
-=======
-<h1>New Project</h1>
 <%= render 'form' %>
 <%= link_to 'Back', projects_path %>
->>>>>>> c55042b19c2eea3a5daffdc818f06727266e1a90
+
