@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20150513135310) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
     t.string   "title"
     t.string   "description"
     t.integer  "funding_goal"
