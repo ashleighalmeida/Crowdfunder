@@ -1,0 +1,65 @@
+
+
+<% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for (@project) do |f| %>
+<div class="field">
+  <%= f.label :title %> <br/>
+  <%= f.text_field :title %>
+</div>
+
+<div class="field">
+  <%= f.label :description %> <br/>
+  <%= f.text_area :description %>
+</div>
+<div class="field">
+  <%= f.label :funding_goal %> <br/>
+  <%= f.number_field :funding_goal %>
+</div>
+<div class="field">
+  <%= f.label :start_date %> <br/>
+  <%= f.date_field :start_date %>
+</div>
+<div class="field">
+  <%= f.label :end_date %> <br/>
+  <%= f.date_field :end_date %>
+</div>
+
+
+
+
+
+
+<h4>Rewards<h4/>
+
+<%= f.fields_for :rewards do |rewards_form| %>
+  <div>
+    <%= rewards_form.label :name %>
+    <%= rewards_form.text_field :name %>
+    </div>
+
+    <div>
+      <%= rewards_form.label :description %>
+      <%= rewards_form.text_area :description %>
+    </div>
+
+    <div>
+      <%= rewards_form.label :amount %>
+      <%= rewards_form.text_field: amount %>
+    </div>
+<% end %>
+<div class="action">
+
+    <%= f.submit %>
+</div>
+<% end %>  

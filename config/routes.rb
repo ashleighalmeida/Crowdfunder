@@ -1,39 +1,16 @@
 Rails.application.routes.draw do
-  get 'rewards/show'
+ 
 
-  get 'rewards/create'
-
-  get 'rewards/edit'
-
-  get 'rewards/destroy'
-
-  get 'projects/index'
-
-  get 'projects/show'
-
-  get 'projects/new'
-
-  get 'projects/edit'
-
-  get 'projects/destroy'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'projects/:id' => 'projects#show', as: 'project'
+  root 'projects#index'
+  resources :projects
+  resources :sessions, only: [:new,:create, :destroy]
+  resources :users, only: [:new,:create]
+  resources :pledges, only: [:new,:create, :show, :index]
 
 get "logout" => "sessions#destroy", :as => "logout"
 get "login" => "sessions#new", :as => "login"
 get "signup" => "users#new", :as => "signup"
-resources :users
-resources :sessions
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
