@@ -5,11 +5,13 @@ class ProjectsController < ApplicationController
 
   def show
      @project = Project.find(params[:id])
-
   end
 
+
   def new
+
     @project = Project.new
+    @project.rewards.build
   end
 
   def create
@@ -20,9 +22,7 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
-
   end
-
 
   def edit
     @project = Project.find(params[:id])
@@ -43,4 +43,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :desccription, :funding_goal, :start_end, :end_date)
   end
+
 end
