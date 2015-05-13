@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-     @project = Project.find(params[:id]
-    @projects = Project.find(params[:id])
+     @project = Project.find(params[:id])
+   
   end
 
   def new
@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    if project.save
+    if @project.save
       redirect_to projects_url
     else
       render :new
