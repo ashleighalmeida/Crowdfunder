@@ -43,20 +43,7 @@
 <h4>Rewards<h4/>
 
 <%= f.fields_for :rewards do |rewards_form| %>
-  <div>
-    <%= rewards_form.label :title %>
-    <%= rewards_form.text_field :title %>
-    </div>
-
-    <div>
-      <%= rewards_form.label :description %>
-      <%= rewards_form.text_area :description %>
-    </div>
-
-    <div>
-      <%= rewards_form.label :amount %>
-      <%= rewards_form.text_field :amount %>
-    </div>
+  <%= render partial: 'reward_fields', locals: {f: rewards_form} %>
 <% end %>
 
 <div class="links">
