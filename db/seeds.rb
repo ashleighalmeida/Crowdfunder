@@ -2,9 +2,9 @@ Project.create!(
   :title => "Project 1",
   :description => "I am a project.",
   :category => "Comics",
-  :funding_goal => "1,000",
-  :start_date => "10/10/10",
-  :end_date => "11/11/11",
+  :funding_goal => 1000,
+  :start_date => 1.month.from_now,
+  :end_date => 2.months.from_now,
   :photo_url => "www.dgsgs/sgs/sdfs.gif",
   :total_raised => "10k"
 
@@ -14,20 +14,22 @@ Project.create!(
 Reward.create!(
   :title  => "x",
   :amount => 0,
-  :description => "x"
+  :description => "x",
+  :project_id => 1
+)
+
+Reward.create!(
+  :title  => "x",
+  :amount => 0,
+  :description => "x",
+  :project_id => 1
 
 )
 
 Reward.create!(
   :title  => "x",
   :amount => 0,
-  :description => "x"
-
-)
-
-Reward.create!(
-  :title  => "x",
-  :amount => 0,
-  :description => "x"
+  :description => "x",
+  :project_id => 1
 
 )

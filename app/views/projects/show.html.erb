@@ -1,4 +1,10 @@
 <h1>Project</h1>
-<!-- <div>link_to "Back this project", </div> -->
 
 <%= render @project %>
+<div class="rewards">
+  <% @project.rewards.each do |reward| %>
+    <%= render '/rewards/reward', reward: reward %>
+    <div><%=link_to "Get this reward", new_pledge_path, :reward_id => reward.id%></div>
+
+  <% end %>
+</div>
