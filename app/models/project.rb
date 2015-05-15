@@ -22,7 +22,6 @@ class Comment < ActiveRecord::Base
 end
 
 class User < ActiveRecord::Base
-  ...
   has_many :commments
   has_many :projects, through: :comments
 end
