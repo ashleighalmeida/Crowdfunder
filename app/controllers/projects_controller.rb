@@ -2,11 +2,25 @@ class ProjectsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
 
   def index
+    @projects = if params[:search]
+      Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     @projects = Project.all
+    else
+      Project.all
+    end
+
+     respond_to do |format|
+      format.html
+      format.js
+
   end
+end
 
   def show
      @project = Project.find(params[:id])
+     if current_user
+    @comment = @project.comments.build
+  end
   end
 
 

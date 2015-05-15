@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
  
 
+  get 'comments/show'
+
+  get 'comments/create'
+
+  get 'comments/destroy'
+
   resources :users
   resources :users
   root 'projects#index'
@@ -14,6 +20,7 @@ Rails.application.routes.draw do
  
   resources :projects do
     resources :rewards, only: [:new, :create, :edit, :show, :destroy] 
+    resources :comments, only: [:show, :create, :destroy]
   end 
 
 
