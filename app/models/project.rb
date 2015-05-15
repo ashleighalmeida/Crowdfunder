@@ -16,10 +16,6 @@ class Project < ActiveRecord::Base
   end
 
 
-  # def days_left
-  #    end_date - Date.now  
-  # end
-
 end
 
 class Comment < ActiveRecord::Base
