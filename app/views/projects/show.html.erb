@@ -1,3 +1,51 @@
 <h1>Project</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
-<!-- <div>link_to "Back this project", </div> -->
+
+<%= render @project %>
+<div class="rewards">
+  <% @project.rewards.each do |reward| %>
+    <%= render '/rewards/reward', reward: reward %>
+    <div><%=link_to "Get this reward", new_pledge_path, :reward_id => reward.id%></div>
+
+  <% end %>
+
+  <h3> Comments </h3>
+
+  <p>Comments for <%= @project.name %></p>
+
+  <div id="comment-list">
+
+  <% @project.comments.each do |comment| %>
+    <div class="comment">
+      <%= comment.comment %>
+      <br>
+      <% if comment.user != nil %>
+        <em> by <%= comment.user.email %></em>
+        Added on: <%= comment.created_at %>
+      <% end %>
+    </p>
+  <% end %>
+  </div>
+
+<% if current_user %>
+
+  <h4>Comment</h4>
+
+  <div id="comment-list">
+    <%= render :partial => "comments" %>
+</div>
+
+    <div class="field">
+      <%= f.label :comment %><br />
+      <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to add a comment.</p> 
+<% end %>
+.
+
+</div>

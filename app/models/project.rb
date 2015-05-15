@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   has_many :rewards
   has_many :pledges
+  has_many :comments
+  has_many :users, through: :reviews
   accepts_nested_attributes_for :rewards, :reject_if => :all_blank, :allow_destroy => true
 
   validates :title, :description, presence: true
@@ -13,3 +15,15 @@ class Project < ActiveRecord::Base
     end
   end
 end
+
+class Comment < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :project
+end
+
+class User < ActiveRecord::Base
+  ...
+  has_many :commments
+  has_many :projects, through: :comments
+end
+

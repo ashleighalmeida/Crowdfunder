@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
  
 
+  get 'comments/show'
+
+  get 'comments/create'
+
+  get 'comments/destroy'
+
+  resources :users
+  resources :users
   root 'projects#index'
 
 
-  resources :sessions, only: [:new,:create, :destroy]
+  resources :user_sessions, only: [:new,:create, :destroy]
   resources :users, only: [:new,:create]
   resources :pledges, only: [:new,:create, :show, :index]
 
@@ -12,14 +20,15 @@ Rails.application.routes.draw do
  
   resources :projects do
     resources :rewards, only: [:new, :create, :edit, :show, :destroy] 
+    resources :comments, only: [:show, :create, :destroy]
   end 
 
 
   
 
 
-get "logout" => "sessions#destroy", :as => "logout"
-get "login" => "sessions#new", :as => "login"
+get "logout" => "user_sessions#destroy", :as => "logout"
+get "login" => "user_sessions#new", :as => "login"
 get "signup" => "users#new", :as => "signup"
 
   namespace :admin do

@@ -2,6 +2,7 @@ class PledgesController < ApplicationController
   before_filter :load_project
 
   def new
+    @reward = Reward.find(params[:reward_id])
     @pledge=Pledge.new
   end
 
