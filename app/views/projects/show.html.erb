@@ -12,7 +12,7 @@
 
   <p>Comments for <%= @project.name %></p>
 
-  <div id="review-list">
+  <div id="comment-list">
 
   <% @project.comments.each do |comment| %>
     <div class="comment">
@@ -44,7 +44,7 @@
   <% end %>
 
 <% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to add a review.</p> 
+  <p>Please <%= link_to "log in", new_session_path %> to add a comment.</p> 
 <% end %>
 .
 
