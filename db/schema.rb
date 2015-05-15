@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514211313) do
+ActiveRecord::Schema.define(version: 20150515184659) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150514211313) do
     t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "pledges", force: :cascade do |t|
