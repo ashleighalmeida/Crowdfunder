@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 
 
+  has_many :commments
+  has_many :projects, through: :comments
+
 
 
 

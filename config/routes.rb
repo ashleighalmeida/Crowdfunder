@@ -1,35 +1,20 @@
 Rails.application.routes.draw do
- 
+root 'projects#index'
 
-  get 'comments/show'
+ resources :user_sessions, only: [:new,:create, :destroy]
+ resources :users, only: [:new,:create]
 
-  get 'comments/create'
-
-  get 'comments/destroy'
-
-  resources :users
-  resources :users
-  root 'projects#index'
-
-
-  resources :user_sessions, only: [:new,:create, :destroy]
-  resources :users, only: [:new,:create]
-  resources :pledges, only: [:new,:create, :show, :index]
-
-  resources :projects, only: [:index, :new, :create, :show, :edit, :destroy] 
- 
-  resources :projects do
-    resources :rewards, only: [:new, :create, :edit, :show, :destroy] 
-    resources :comments, only: [:show, :create, :destroy]
-  end 
+ resources :projects, only: [:index, :new, :create, :show, :edit, :destroy] do
+   resources :rewards, only: [:new, :create, :edit, :show, :destroy] 
+   resources :comments, only: [:show, :create, :destroy]
+ end 
+ resources :pledges, only: [:new,:create, :show, :index]
 
 
-  
 
-
-get "logout" => "user_sessions#destroy", :as => "logout"
-get "login" => "user_sessions#new", :as => "login"
-get "signup" => "users#new", :as => "signup"
+ get "logout" => "user_sessions#destroy", :as => "logout"
+ get "login" => "user_sessions#new", :as => "login"
+ get "signup" => "users#new", :as => "signup"
 
   namespace :admin do
     resources :users

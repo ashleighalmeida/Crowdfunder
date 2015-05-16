@@ -18,13 +18,4 @@ class Project < ActiveRecord::Base
 
 end
 
-class Comment < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :project
-end
-
-class User < ActiveRecord::Base
-  has_many :commments
-  has_many :projects, through: :comments
-end
 
