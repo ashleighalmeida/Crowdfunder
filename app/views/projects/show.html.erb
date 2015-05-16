@@ -5,52 +5,20 @@
 
 <div class="rewards">
   <% @project.rewards.each do |reward| %>
-    <p><%= reward.title %>, <%= reward.description %></p>
-
+    <p><%= reward.title %>, <%= reward.description %>, <%= reward.amount %></p>
+    <div class="pledge-form">
     <%= form_for Pledge.new do |f| %>
       <%= f.hidden_field :project_id, value: reward.project_id %>
       <%= f.hidden_field :reward_id, value: reward.id %>
       <%= f.submit "Back this!" %>
     <% end %>
-    
+    </div>
     <div>
       <%#=link_to "Get this reward", new_project_pledge_path(@project.id), :reward_id => reward.id%>
     </div>
   <% end %>
 
-  <h3> Comments </h3>
-
-  <p>Comments for <%= @project.title %></p>
-
-  <div id="comment-list">
-    <% @project.comments.each do |comment| %>
-      <div class="comment">
-        <%= comment.comment %>
-        <br>
-        <% if comment.user != nil %>
-          <em> by <%= comment.user.email %></em>
-          Added on: <%= comment.created_at %>
-        <% end %>
-      </p>
-    <% end %>
-  </div>
-
-<% if current_user %>
-
-  <h4>Comment</h4>
-
-  <div id="comment-list">
-   
 </div>
-
-    
-
-<% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to add a comment.</p> 
-<% end %>
-
-
-
 
 
 
