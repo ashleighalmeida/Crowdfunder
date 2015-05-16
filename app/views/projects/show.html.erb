@@ -10,7 +10,10 @@
     <%= form_for Pledge.new do |f| %>
       <%= f.hidden_field :project_id, value: reward.project_id %>
       <%= f.hidden_field :reward_id, value: reward.id %>
-      <%= f.submit "Back this!" %>
+            <%= button_to 'Make Donation', 
+                project_pledges_path(@project, :reward_id => reward.id), 
+                :method => 'post'%>
+       
     <% end %>
     </div>
     <div>

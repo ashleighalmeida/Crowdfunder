@@ -5,10 +5,10 @@ root 'projects#index'
  resources :users, only: [:new,:create]
 
  resources :projects, only: [:index, :new, :create, :show, :edit, :destroy] do
-   resources :rewards, only: [:new, :create, :edit, :show, :destroy] 
+   resources :pledges, only: [:new,:create, :show, :index]   
    resources :comments, only: [:show, :create, :destroy]
  end 
- resources :pledges, only: [:new,:create, :show, :index]
+ 
 
 
 

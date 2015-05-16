@@ -1,17 +1,17 @@
 class PledgesController < ApplicationController
-  #before_filter :load_project
+  before_filter :load_project
 
-  def new
-    @project = Project.find(params[:project_id])
-    @rewards = @project.rewards
-    @pledge=Pledge.new()
-   
-  end
+ def new
+   @project = load_project
+   @pledge = @project.pledges.build
+ end
 
 
-  def create
-    @pledge = Pledge.new(pledge_params)
-    @pledge.user_id = current_user.id
+def create
+   @project = load_project
+   @reward = @project.rewards.find(params[:reward_id])
+   @pledge = @project.pledges.new(reward: @reward, user: current_user, amount: @reward.amount)
+
 
     if @pledge.save
       flash[:notice] = "Backed project for #{@pledge.reward.title}"
@@ -29,10 +29,6 @@ class PledgesController < ApplicationController
 
   private
   
-  def pledge_params
-    params.require(:pledge).permit(:amount, :reward_id, :project_id)
-  end
-
   def load_project
     @project = Project.find(params[:id])
   end 
