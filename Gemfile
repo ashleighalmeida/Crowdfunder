@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cocoon'
 
-gem 'faker', '~> 1.4.3'
+
 
 gem 'sorcery'
 
