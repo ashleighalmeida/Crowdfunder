@@ -10,10 +10,13 @@ class User < ActiveRecord::Base
 
 
  
-  has_many :owned_projects, class_name: 'Project'
-  has_many :backed_projects, through: :pledges, class_name: 'Project' 
-  has_many :pledges, through: :projects
+  has_many :projects, {foreign_key: :founder_id}
+  has_many :projects, through: :pledges, class_name: 'Project' 
+  has_many :pledges,  {foreign_key: :backer_id}
+
   has_many :rewards, through: :projects
+
+
 
 
 

@@ -10,7 +10,14 @@
 
 
  <% end %>
-
-  
+ <%  %>
+<% if current_user %>
+  <%case @project.status(current_user)%>
+     <% when "Backed" %>
+      <%= "You've backed this project" %>
+     <% when "Founded" %>
+  <% end %>
+      
+<% end %>
   
 </div>

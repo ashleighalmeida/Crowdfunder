@@ -1,8 +1,10 @@
 class Project < ActiveRecord::Base
+  belongs_to(:founder, {class_name: "User", foreign_key: :founder_id})
   has_many :rewards
   has_many :pledges
   has_many :comments
-  has_many :users, through: :reviews
+  has_many :backers, through: :pledges
+
   accepts_nested_attributes_for :rewards, :reject_if => :all_blank, :allow_destroy => true
 
   validates :title, :description, presence: true
@@ -21,6 +23,16 @@ class Project < ActiveRecord::Base
       total_raised.sum(:amount)
     else 0
     end 
+  end
+
+  def status(user)
+    if user == founder
+      "Founded"
+    elsif backers.exists?(user.id)
+      "Backed"
+    else
+      "Back this"
+    end
   end
 
   # def pledges_by_user

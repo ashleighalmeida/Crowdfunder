@@ -10,7 +10,7 @@ class PledgesController < ApplicationController
 def create
    @project = load_project
    @reward = @project.rewards.find(params[:reward_id])
-   @pledge = @project.pledges.new(reward: @reward, user: current_user, amount: @reward.amount)
+   @pledge = @project.pledges.new(reward: @reward, backer: current_user, amount: @reward.amount)
    
 
     if @pledge.save
@@ -20,6 +20,10 @@ def create
       render :new
     end
   end
+
+
+
+
 
   def show
   end
