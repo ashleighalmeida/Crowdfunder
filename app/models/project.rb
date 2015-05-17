@@ -23,6 +23,14 @@ class Project < ActiveRecord::Base
     end 
   end
 
+  # def pledges_by_user
+  #    pledged_so_far = pledges.where(project_id: id) 
+  #    if @logged_in?  
+  #     pledged_so_far
+  #   else 0
+  #   end
+  # end
+
 end
 
 

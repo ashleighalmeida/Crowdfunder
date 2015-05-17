@@ -10,8 +10,12 @@ class User < ActiveRecord::Base
 
 
  
-  has_many :projects
+  has_many :owned_projects, class_name: 'Project'
+  has_many :backed_projects, through: :pledges, class_name: 'Project' 
   has_many :pledges, through: :projects
   has_many :rewards, through: :projects
+
+
+
 
 end

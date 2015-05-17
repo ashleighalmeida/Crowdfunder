@@ -2,7 +2,6 @@
 
 <%= render @project %>
 
-
 <div class="rewards">
  <% @project.rewards.each do |reward| %>
    <p><%= reward.title %>, <%= reward.description %>, <%= reward.amount %></p>
@@ -12,4 +11,6 @@
 
  <% end %>
 
+  
+  
 </div>
