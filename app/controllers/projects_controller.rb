@@ -6,7 +6,6 @@ class ProjectsController < ApplicationController
   
   def show
      @project = Project.find(params[:id])
-   
   end
 
 
@@ -16,10 +15,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
-
+    @project = Project.new(project_params) 
     
     if @project.save
+      @project.founder_id = current_user.id
+      @project.save
       redirect_to projects_url, :notice => "Project created!"
     else
       render :new, :notice => "Project not saved, please try again!"

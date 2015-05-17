@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  belongs_to(:founder, {class_name: "User", foreign_key: :founder_id})
+  belongs_to :founder, {class_name: "User"}, foreign_key: 'founder_id'
   has_many :rewards
   has_many :pledges
   has_many :comments

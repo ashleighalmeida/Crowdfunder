@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @pledges = @user.pledges
     @projects = @user.projects
     
-    @pledges_by_project = @project.pledges.where
+    # @pledges_by_project = @project.pledges.where
     @total_pledges = @user.pledges.sum(:amount)
   end
 
