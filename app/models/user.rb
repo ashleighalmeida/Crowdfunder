@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
 	validates :email, uniqueness: true
+
+
+  has_many :commments
+  has_many :projects, through: :comments
+
+
+
+
 end

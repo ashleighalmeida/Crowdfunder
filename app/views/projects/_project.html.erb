@@ -1,6 +1,12 @@
+
 <div class="well">
-  <p> Project: <%= project.title%> <br>
+  <p> Project: <%= link_to project.title, project_path(project.id)%> <br>
     Description: <%=project.description %> <br>
-    Pledged: <%= project.funding_goal %></p>
+    Funding goal: <%= project.funding_goal %> <br>
+    Amount raised: <%= project.amount_pledged %> <br>
+    Time remaining: <%= distance_of_time_in_words_to_now(project.end_date) %></p>
 </div>
 
+<div class="button">
+  <%#= link_to "Back this project", new_project_pledge_path(project.id), method: :get%>
+</div>

@@ -14,16 +14,15 @@ class Project < ActiveRecord::Base
       errors.add(:start_date, "can't be in the past")
     end
   end
+
+  def amount_pledged
+    total_raised = pledges.where(project_id: id)
+    if total_raised 
+      total_raised.sum(:amount)
+    else 0
+    end 
+  end
+
 end
 
-class Comment < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :project
-end
-
-class User < ActiveRecord::Base
-  ...
-  has_many :commments
-  has_many :projects, through: :comments
-end
 

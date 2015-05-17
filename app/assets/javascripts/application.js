@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require cocoon
 //= require_tree .
+
+
+$(document).on('ready page:load', function() {
+  $('.pledge-form').on('click', function(e) {
+    e.preventDefault();
+    });
+  });
