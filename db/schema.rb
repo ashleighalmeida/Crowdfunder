@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517182234) do
+ActiveRecord::Schema.define(version: 20150517211536) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20150517182234) do
   end
 
   add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "comment"
@@ -48,10 +54,10 @@ ActiveRecord::Schema.define(version: 20150517182234) do
     t.datetime "end_date"
     t.string   "photo_url"
     t.integer  "total_raised"
-    t.string   "category"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "founder_id"
+    t.integer  "category_id"
   end
 
   create_table "rewards", force: :cascade do |t|

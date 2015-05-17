@@ -14,6 +14,13 @@
 
 <%= form_for (@project) do |f| %>
   <div class="field">
+      <%= f.select :category_id, Category.all.map{|c| [c.name, c.id]} %>
+ <br/>
+    
+  </div>
+
+
+  <div class="field">
     <%= f.label :title %> <br/>
     <%= f.text_field :title %>
   </div>

@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :pledges
   has_many :comments
   has_many :backers, through: :pledges
+  belongs_to :category
 
   accepts_nested_attributes_for :rewards, :reject_if => :all_blank, :allow_destroy => true
 

@@ -5,15 +5,19 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Crypted password:</strong>
-  <%= @user.crypted_password %>
-</p>
+<% @pledges.each do |pledge| %>
+  <p> <%= pledge.project.title %>, <%= pledge.amount %>, <%= pledge.reward.title %></p>
+<% end %>
 
-<p>
-  <strong>Salt:</strong>
-  <%= @user.salt %>
-</p>
+ Total Pledged: <%= @total_pledges %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+
+
+
+<% @projects.each do |project| %>
+  <% project.title %>
+    <% pledges = project.pledges.where(backer_id: current_user) %>
+    Total Pledged for Project: <%= pledges.sum(:amount) %> 
+  
+<% end %>

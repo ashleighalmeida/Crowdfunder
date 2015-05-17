@@ -11,9 +11,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
     @user = User.find(params[:id])
-    @pledges = Pledge.find(params[:user_id = id])
+    @pledges = @user.pledges
+    @projects = @user.projects
+    
+    @pledges_by_project = @project.pledges.where
+    @total_pledges = @user.pledges.sum(:amount)
   end
 
   # GET /users/new
@@ -29,6 +32,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+
+
 
     respond_to do |format|
       if @user.save
