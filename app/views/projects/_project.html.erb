@@ -3,6 +3,7 @@
   <p> Project: <%= link_to project.title, project_path(project.id)%> <br>
     Description: <%=project.description %> <br>
     Funding goal: <%= project.funding_goal %> <br>
+    Amount raised: <%= project.amount_pledged %> <br>
     Time remaining: <%= distance_of_time_in_words_to_now(project.end_date) %></p>
 </div>
 

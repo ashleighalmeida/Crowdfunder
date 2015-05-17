@@ -15,6 +15,13 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def amount_pledged
+    total_raised = pledges.where(project_id: id)
+    if total_raised 
+      total_raised.sum(:amount)
+    else 0
+    end 
+  end
 
 end
 
